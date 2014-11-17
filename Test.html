@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<style type="text/css" media="all">
+			body { 
+				padding: 50px; 
+				font-family: Arial, sans-serif;
+			}
+
+			#folder {
+				width: 300px;
+				padding: 10px;
+			}
+
+			.fold {
+				background: -webkit-linear-gradient(top, #e5e5e5, #ccc);
+				background: -moz-linera-gradient(top, #e5e5e5, #ccc);
+				padding: 10px;
+				width: 60%;
+				
+				color: #999;
+				-webkit-transition: all 0.3s linear;
+				-moz-transition: all 0.3s linear;
+				transition: all 0.3s linear;
+			}
+
+			#toggle { display: none; }
+
+			#toggle-label {
+				display: inline-block;
+				cursor: pointer;
+				margin-bottom: 50px;
+				border: 1px solid #e5e5e5;
+				font-size: 11px;
+				color: #999;
+				background: #fff;
+				text-transform: uppercase;
+				border-radius: 5px;
+				padding: 5px;
+			}
+
+			#toggle:checked ~ .fold:nth-child(odd) {
+				margin-top: -82px;
+				-webkit-transform: perspective(800px) rotateX(-90deg); 
+				-moz-transform: perspective(800px) rotateX(-90deg); 
+				transform: perspective(800px) rotateX(-90deg);
+			}
+
+			#toggle:checked ~ .fold:nth-child(even) {
+				margin-top: -84px;
+				-webkit-transform: perspective(800px) rotateX(90deg); 
+				-moz-transform: perspective(800px) rotateX(90deg); 
+				transform: perspective(800px) rotateX(90deg);
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="folder">
+			<input type="checkbox" id="toggle"/> <label for="toggle" id="toggle-label">fold/unfold</label>
+			<div class="fold">
+				<div id="left-Description">
+					Status:
+					<br>
+					Work with the content team in the newsroom to site up a web page for the ongoing criminal investigation content
+				</div>
+				<div id="right-Description">
+					
+				</div>
+			</div>
+			<div class="fold">
+				<div id="right-Description">
+					+Subtask:
+					<ol>
+						<li> Meeting with Mike </li>
+						<li> Set up URL </li>
+						<li> Pull in RSS feed </li>
+						<li> Use API for infographics </li>
+						<li> Add Google Analytic </li>
+						<li> Upload to PubSys </li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+
+
+</html>
