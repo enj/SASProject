@@ -74,7 +74,7 @@ $('#showHelpers').change(function(){
 ##########################*/
  
 var mouse = { startX: 0, startY: 0 };
-var innerElement = $('.buddycloud .stream');
+//var innerElement = $('.buddycloud .stream');
 
 function normalizedX(event){
 	return window.Touch ? event.originalEvent.touches[0].pageX : event.pageX;

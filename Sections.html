@@ -8,13 +8,13 @@
       
       
       div{
-        padding:30px;
+        
       }
       
       .page{
         
-        width:700px
-        height:1000%;
+        height:700px;
+        width:1000px;
       }
       
       .tasks{
@@ -27,9 +27,12 @@
         float:left; 
       }
       
+      
+      
+      
       #timeline{
         
-        height:33%;
+        height:20%;
         width:100%;
         
         
@@ -37,16 +40,25 @@
       
       #task{
         
-        height:33%;
+        height:20%;
         width:100%;
         
       }
       
       #projects{
         
-        height:33%;
+        height:20%;
         width:100%;
         
+      }
+      
+      
+      .left{
+       float:left;
+      }
+      
+      .right{
+       float:right;
       }
       
     </style>
@@ -58,12 +70,47 @@
   <body>
         
   <div id="page1" class="page">
-      <header> test </header>
-      
-      
+    
+    <!-- This is a section for the header with nav bar      -->
+      <section> 
+        <div id="picture" class="left" >
+          <div>
+            <img src="img/MugShot.PNG" alt="Photo" style="width:50px;height:50px">
+          </div>
+        </div>
+        
+        <div id="info" class="left">
+          <div id="name">JARED NELSON <img src="../pic_mountain.jpg" alt="Photo" style="width:10px;height:10px"></div>
+          <div id="name">Reginoal interaction Operations</div>
+          <div id="name">Project Manager</div>
+        </div>
+        
+        <div id="navbar" class="right">
+          <div class="left">
+            <img src="../img/Nav1.PNG" alt="Photo" style="width:50px;height:50px">
+          </div>
+          <div class="left">
+            <img src="../img/Nav2.PNG" alt="Photo" style="width:50px;height:50px">
+          </div>
+          <div class="left">
+            <img src="../img/Nav3.PNG" alt="Photo" style="width:50px;height:50px">
+          </div>
+          <div class="left">
+            <img src="../img/Nav4.PNG" alt="Photo" style="width:50px;height:50px">
+          </div>
+          <div class="left">
+            <img src="../img/Nav5.PNG" alt="Photo" style="width:50px;height:50px">
+          </div>
+        </div>
+    </section>
+    
+    <!-- This is a section for the timeline      -->  
       <section id="timeline">
         <div>
-          timeline
+          The Weeks Ahead
+        </div>
+        <div>
+          <img src="pic_mountain.jpg" alt="Photo" style="width:600px;height:100px">
         </div>
         
       </section>
@@ -94,7 +141,6 @@
         <div id="project3" class="projects">
           project3
         </div>
-        
       </section>
       
       
