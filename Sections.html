@@ -26,9 +26,7 @@
         
         float:left; 
       }
-      
-      
-      
+
       
       #timeline{
         
@@ -72,50 +70,65 @@
   <div id="page1" class="page">
     
     <!-- This is a section for the header with nav bar      -->
-      <section> 
+      <header > 
         <div id="picture" class="left" >
           <div>
-            <img src="img/MugShot.PNG" alt="Photo" style="width:50px;height:50px">
+            <img src="https://raw.githubusercontent.com/enj/SASProject/master/img/MugShot.PNG" alt="Photo" style="width:50px;height:50px"/>
           </div>
         </div>
         
         <div id="info" class="left">
-          <div id="name">JARED NELSON <img src="../pic_mountain.jpg" alt="Photo" style="width:10px;height:10px"></div>
+          <div id="name">JARED NELSON <img src="pic_mountain.jpg" alt="Photo" style="width:10px;height:10px"/></div>
           <div id="name">Reginoal interaction Operations</div>
           <div id="name">Project Manager</div>
         </div>
         
-        <div id="navbar" class="right">
+        <div id="navbar" class="left">
           <div class="left">
-            <img src="../img/Nav1.PNG" alt="Photo" style="width:50px;height:50px">
+            <img src="https://raw.githubusercontent.com/enj/SASProject/master/img/Nav1.PNG" alt="Photo" style="width:50px;height:50px"/>
           </div>
           <div class="left">
-            <img src="../img/Nav2.PNG" alt="Photo" style="width:50px;height:50px">
+            <img src="https://raw.githubusercontent.com/enj/SASProject/master/img/Nav2.PNG" alt="Photo" style="width:50px;height:50px"/>
           </div>
           <div class="left">
-            <img src="../img/Nav3.PNG" alt="Photo" style="width:50px;height:50px">
+            <img src="https://raw.githubusercontent.com/enj/SASProject/master/img/Nav3.PNG" alt="Photo" style="width:50px;height:50px"/>
           </div>
           <div class="left">
-            <img src="../img/Nav4.PNG" alt="Photo" style="width:50px;height:50px">
+            <img src="https://raw.githubusercontent.com/enj/SASProject/master/img/Nav4.PNG" alt="Photo" style="width:50px;height:50px"/>
           </div>
           <div class="left">
-            <img src="../img/Nav5.PNG" alt="Photo" style="width:50px;height:50px">
+            <img src="https://raw.githubusercontent.com/enj/SASProject/master/img/Nav5.PNG" alt="Photo" style="width:50px;height:50px"/>
           </div>
         </div>
-    </section>
+    </header>
     
     <!-- This is a section for the timeline      -->  
-      <section id="timeline">
-        <div>
+    <section id="timeline" class="left">
+      
+      <header>
+        <div id="timelineTitle">
           The Weeks Ahead
         </div>
+        
+        <div id="timelineScrol">
+          <img src="https://raw.githubusercontent.com/enj/SASProject/master/img/scrollbar.PNG" alt="Photo"/>
+        </div>
+      </header>
         <div>
           <img src="pic_mountain.jpg" alt="Photo" style="width:600px;height:100px">
         </div>
         
       </section>
       
-      <section id="task">
+    <!-- This is a section for the task section/will need to be hidden some of the time      -->  
+      <section id="task" class="left">
+        
+        <header class="left">
+          <div>TASK LIST</div>
+          <div class="right"> + Add Task</div>
+        </header>
+        
+        
         <div id="task1" class="tasks">
           Task1
         </div>
@@ -131,7 +144,13 @@
       </section>
   
       
-      <section id="projects">
+      <section id="projects" class="left">
+        
+         <div class="left">
+          <div>PROJECTS</div>
+          <div class="right"> + Add Project</div>
+        </div>
+        
         <div id="project1" class="projects">
           project1
         </div>
@@ -142,14 +161,16 @@
           project3
         </div>
       </section>
-      
-      
-  </div>
     
     
     
     
     
     
+    
+    
+    
+    </div> <!--end page one div-->
+
   </body>
 </html>
