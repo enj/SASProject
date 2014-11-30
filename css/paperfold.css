@@ -146,3 +146,7 @@
 .buddycloud .visible.no-transition + .seeMore {
     transition: none;
 }
+
+.playground {
+    overflow: scroll;
+}
