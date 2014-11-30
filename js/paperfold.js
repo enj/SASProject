@@ -44,6 +44,7 @@ var paperfold = {
       this.tops = this.folds.find('> .top');
       
       // bind buttons
+      this.element.prev('.seeThis').click( $.proxy(this, 'toggle') );
       this.element.next('.seeMore').click( $.proxy(this, 'toggle') );
       $('#go').click( $.proxy(this, 'toggle') );
       
