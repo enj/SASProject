@@ -1,4 +1,4 @@
-.hidden {
+.fold-hidden {
     /*overflow: hidden; important for big folds but bad for demo because it cuts of the depth in other perspectives */
     transform-style: preserve-3d;
 }
@@ -12,7 +12,7 @@
 /* 
     easing functions
     ================
-    
+    .
     kappa = 0.5522847498307936
     - half circle (low): cubic-bezier(0.552, 0.000, 1.000, 0.448)
     - half circle (top): cubic-bezier(0.000, 0.552, 0.448, 1.000) 
@@ -22,20 +22,20 @@
     - self tested cubic-bezier(0.500, 0.200, 0.900, 0.820)
 */
 
-.showHelpers .hidden .fold {
+.showHelpers .fold-hidden .fold {
     outline: 1px solid rgba(255, 0, 0, .13);
     background: rgba(255, 0, 0, .13);
 }
-.showHelpers .hidden .fold .inner {
+.showHelpers .fold-hidden .fold .inner {
     outline: 1px solid rgba(0, 255, 0, .13);
     background: rgba(0, 255, 0, .13);
 }
-.showHelpers .hidden .fold .top,
-.showHelpers .hidden .fold .bottom {
+.showHelpers .fold-hidden .fold .top,
+.showHelpers .fold-hidden .fold .bottom {
     overflow: visible;
 }
-.showHelpers .hidden .fold .top:after,
-.showHelpers .hidden .fold .bottom:after {
+.showHelpers .fold-hidden .fold .top:after,
+.showHelpers .fold-hidden .fold .bottom:after {
     content: "";
     height: 100%;
     width: 100%;
@@ -43,25 +43,25 @@
     position: absolute;
 }
 
-.hidden .fold {
+.fold-hidden .fold {
     height: 0;
     position: relative;
     transform-style: preserve-3d;
     perspective: 1000px;
 }
 
-.hidden.ready .fold {
+.fold-hidden.ready .fold {
     transition: height 500ms linear;
 }
 
 /* reset the background color */
-.hidden .fold section { background: none; }
+.fold-hidden .fold section { background: none; }
 /* 
     they are the two folds - top and bottom
 */
-.hidden .fold .top,
-.hidden .fold .bottom {
-    width: 502px;
+.fold-hidden .fold .top,
+.fold-hidden .fold .bottom {
+    width: 95%;
     transform-origin: top;
     transform: rotateX(-90deg);
     background-image: linear-gradient(top, rgba(255,255,255,0.5), rgba(255,255,255,0.55) 3%, rgba(255,255,255,0.5) 66%, rgba(255,255,255,0));
@@ -70,13 +70,13 @@
     overflow: hidden;
 }
 
-.hidden.ready .fold .top,
-.hidden.ready .fold .bottom {
+.fold-hidden.ready .fold .top,
+.fold-hidden.ready .fold .bottom {
     /* closing transition */
     transition: transform 500ms cubic-bezier(0.000, 0.450, 1.000, 0.950), background-color 500ms ease-in;
 }
 
-.hidden .fold .bottom {
+.fold-hidden .fold .bottom {
     bottom: 0;
     position: absolute;
     background-image: linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.5) 34%, rgba(255,255,255,.95) 97%, rgba(255,255,255,1));
@@ -84,8 +84,8 @@
     transform: rotateX(90deg);
 }
 
-.hidden.visible .fold .top,
-.hidden.visible .fold .bottom {
+.fold-hidden.visible .fold .top,
+.fold-hidden.visible .fold .bottom {
     transform: rotateX(0);
     background-color: white;
     /* opening transition */
@@ -93,7 +93,7 @@
 }
 
 /* inner holder for the content */
-.hidden .fold .inner {
+.fold-hidden .fold .inner {
     position: absolute;
 }
 
@@ -129,20 +129,20 @@
 }
 
 
-.hidden.ready, .hidden.ready.visible,
-.hidden.ready .fold, .hidden.ready.visible .fold,
-.hidden.ready .fold .top, .hidden.ready .fold .bottom,
-.hidden.ready.visible .fold .top, .hidden.ready.visible .fold .bottom,
-.hidden.ready .fold .inner,
+.fold-hidden.ready, .fold-hidden.ready.visible,
+.fold-hidden.ready .fold, .fold-hidden.ready.visible .fold,
+.fold-hidden.ready .fold .top, .fold-hidden.ready .fold .bottom,
+.fold-hidden.ready.visible .fold .top, .fold-hidden.ready.visible .fold .bottom,
+.fold-hidden.ready .fold .inner,
 .buddycloud .seeMore {
     transition-duration: 400ms;
 }
 
-.hidden.no-transition, .hidden.visible.no-transition,
-.hidden.no-transition .fold, .hidden.visible.no-transition .fold,
-.hidden.no-transition .fold .top, .hidden.no-transition .fold .bottom,
-.hidden.visible.no-transition .fold .top, .hidden.visible.no-transition .fold .bottom,
-.hidden.no-transition .fold .inner,
+.fold-hidden.no-transition, .fold-hidden.visible.no-transition,
+.fold-hidden.no-transition .fold, .fold-hidden.visible.no-transition .fold,
+.fold-hidden.no-transition .fold .top, .fold-hidden.no-transition .fold .bottom,
+.fold-hidden.visible.no-transition .fold .top, .fold-hidden.visible.no-transition .fold .bottom,
+.fold-hidden.no-transition .fold .inner,
 .buddycloud .visible.no-transition + .seeMore {
     transition: none;
 }

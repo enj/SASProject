@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
+    <!-- JQuery UI -->
+   <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css"/>
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+
+<!-- Bootstrap Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Bootstrap Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<!-- Bootstrap Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+    
+    
+    <title>FoldTestPage</title>
+
+    <script>
+    /*
+      $( document ).ready(function() {
+        
+        var set = false;
+
+        $( ".item" ).click(function() {
+          if(set){
+            $('.selecteditem').each(function() {
+              $( this ).toggleClass( "selecteditem" );
+            });
+          }         
+          $( this ).toggleClass( "selecteditem" );
+          //$(this).find('span').toggleClass( "ui-icon-carat-1-s");
+          //$(this).find('span').toggleClass( "ui-icon ui-icon-carat-1-e");
+          
+          set = true;
+
+        });
+    
+    */
+
+
+
+
+
+      //});
+
+    //       http://getbootstrap.com/components/
+    </script>
+
+    <style>
+    
+      div{
+        width:950px;
+      }
+
+      .item {
+        background:rgba(0,0,0,.1);
+        padding:10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 5px;
+        border:1px solid white;
+        border:1px solid rgba(255,255,255, .5);
+        display:inline-block;
+        clear:both;
+        width:950px;
+      }
+
+      .subitem{
+        background:rgba(0,0,0,.1);
+        
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 5px;
+        border:1px solid white;
+        border:1px solid rgba(255,255,255, .5);
+        display:inline-block;
+        clear:both;
+        width:950px;
+        margin-left: 1%;
+        
+      }
+
+      .selecteditem {
+        background:rgba(0,0,0,.1);
+        padding:10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 5px;
+        border:1px solid white;
+        border:1px solid rgba(255,255,255, .5);
+        display:inline-block;
+        clear:both;
+        width:95%;
+      }
+     
+      #arrow{
+        padding-left: 3%;
+      }
+      
+      .strikeout{
+        text-decoration: line-through;  
+        
+      }
+
+    </style>
+
+  <link href="css/paperfold.css" rel="stylesheet" />
+  <script type="text/javascript" src="js/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body>
+     
+    <div id="Description" class="item fold-item">Description <!-- <span id="arrow" class="ui-icon-carat-1-s"> --></span>     </div>
+    <div class="fold-hidden">
+      <div id="DescriptionElement" class="subitem ">    
+        <table style="width:100%;table-layout: fixed;">
+          <tr>
+            <td  style="width:40%;border-right: 2px solid grey ;">
+              <span>Status: </span>
+              <button type="button" class="btn btn-default btn-xs" aria-label="Edit">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </button>
+              <p>Work with the content team in the
+              news room to site up a webpage for the ongoing
+              criminal investigation content.</p>
+            </td>
+            <td style="width:10%;">
+              
+            </td>
+            <td style="width:20%;">
+              
+                <button type="button" class="btn btn-default btn-xs" aria-label="Add">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default btn-xs" aria-label="Folder">
+                  <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+                </button>
+              <p>
+                <span >Subtask:</span>
+              </p>
+              <p class="strikeout" >  1. Meeting with Mike</p>
+              <p class="strikeout" >  2. Set up URL</p>
+              <p class="strikeout" >  3. Pull in RSS feed</p>
+            </td>
+            <td  style="width:30%;">
+              <p style="margin-top: 15px;;opacity: 0.0;">
+               .....
+              </p>
+              <p class="strikeout" >  4. Use API for infographics</p>
+              <p class="strikeout" >  5. Add Google Analytics</p>
+              <p class="strikeout" >  6. Upload to PubSys</p>
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+
+        </table>
+      
+      
+      
+      
+      </div>
+    </div>
+
+    <div id="People" class="item fold-item">People    <!-- <span id="arrow" class="ui-icon-carat-1-e"> -->    </div>
+    <div class="fold-hidden">
+      <div id="PeopleElement" class="subitem ">     
+        <div><img src="img\Peopletab-01.png"></img></div>
+      </div>
+  
+      
+    </div>
+
+    <div id="Assets" class="item fold-item">Assets    <!-- <span id="arrow" class="ui-icon-carat-1-e"> -->    </div>
+    <div class="fold-hidden">
+      <div id="AssetsElement" class="subitem "> 
+         <span>This is our chat window </span>
+         <img src="img\chat.png"></img>
+      </div>
+    </div>
+
+    <div id="Comments" class="item fold-item">Comments    <!-- <span id="arrow" class="ui-icon-carat-1-e"> -->    </div>
+    <div class="fold-hidden">
+
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="..." style="width: 90%;">
+      <button type="button" class="btn btn-default btn-sm" style="width: 10%;">+Comment</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active">
+          <td>1</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="success">
+          <td>3</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="info">
+          <td>5</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="warning">
+          <td>7</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="danger">
+          <td>9</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+      </tbody>
+</table>
+
+      <div id="CommentsElement" class="subitem ">     This div shoudl be lower   </div>
+    </div>
+
+    <div id="Anaylse" class="item fold-item">Anaylse    <!-- <span id="arrow" class="ui-icon-carat-1-e"> -->    </div>
+    <div class="fold-hidden">
+      <div id="AnaylseElement" class="subitem ">   </div>
+       <div><img src="img\Analyzetab-01.png"></img></div>
+    </div>
+    
+    
+
+
+  <script type="text/javascript" src="js/paperfold.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+

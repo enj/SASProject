@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>  
+
+<!-- Bootstrap Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+<!-- Bootstrap Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<!-- Bootstrap Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+<script src="js/bootstrap-datepicker.js"></script>
+<link id="bsdp-css" href="css/datepicker3.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-clockpicker.min.css">
+<script type="text/javascript" src="js/bootstrap-clockpicker.min.js"></script>
+
+<title>HTML5, CSS3 and JavaScript demo</title>
+</head>
+<body>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add A Task</h4>
+        </div>
+        <div class="modal-body">
+
+          <!--FORM PAGE -->
+          <form class="form-horizontal" role="form">
+            
+            
+            <div class="form-group">
+              <label for="form-task" class="col-sm-2 control-label">Task</label>
+              <div class="col-sm-10">
+                <input type="task" class="form-control" id="form-task" placeholder="">
+              </div>
+           <!--   
+              <div class="col-sm-3">
+                <select class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              </div>
+              -->
+            </div>
+            
+            
+            <div class="form-group">
+      
+              <label for="form-fromDate" class="col-sm-2 control-label">Date</label>
+              <div class="col-sm-4">
+                <div id="form-fromDate2">
+                  <div class="input-group date">
+                    <input id="form-fromDate" type="text" class="form-control">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                  </div>
+                </div>
+              </div>
+               <label for="form-fromTime" class="col-sm-2 control-label">Time</label>
+              <div class="col-sm-4">
+                <div class="input-group clockpicker" data-autoclose="true">
+                  <input type="text" class="form-control" id="form-fromTime" placeholder="">
+                  <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-time"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="form-group">
+              <div class="col-sm-offset-1 col-sm-1">
+                <button id="AddDateTime" type="button" class="btn btn-default">To</button>
+              </div>
+              <div class="col-sm-4">
+               <div id="form-fromDate2">
+                  <div class="input-group date">
+                    <input type="input" class="form-control" id="form-toDate" placeholder="" disabled>
+                    <span class="input-group-addon"><i id="clanderIcon" class="glyphicon glyphicon-th" disable></i></span>
+                  </div>
+                </div>
+              </div>
+               <label for="form-toTime" class="col-sm-2 control-label"></label>
+              <div class="col-sm-4">
+                <div class="input-group clockpicker" data-autoclose="true">
+                  <input type="text" class="form-control" id="form-toTime" placeholder="" disabled>
+                  <span class="input-group-addon">
+                     <span id="clockIcon" class="glyphicon glyphicon-time" disable></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+          </form>
+          <!--  END FORM -->
+        </div>
+        <div class="modal-footer">
+          <button id="Close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="AddTask" type="button" class="btn btn-primary" data-dismiss="modal">Add Task</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Modal -->
+<!-- End your code here -->
+
+  <script>
+  $( document ).ready(function() {
+    
+      $('.clockpicker').clockpicker();
+      
+
+      $('#form-fromDate2 .input-group.date').datepicker({
+          format: "yyyy-mm-dd",
+          startDate: "2014-01-01",
+          endDate: "2030-01-01",
+          todayBtn: "linked",
+          daysOfWeekDisabled: "0,6",
+          autoclose: true,
+          todayHighlight: true
+      });
+      
+      $('#form-toDate .input-group.date').datepicker({
+          format: "yyyy-mm-dd",
+          startDate: "2014-01-01",
+          endDate: "2030-01-01",
+          todayBtn: "linked",
+          daysOfWeekDisabled: "0,6",
+          autoclose: true,
+          todayHighlight: true
+      });
+      
+      
+      $( "#brand" ).click(function() {
+        alert();
+      });
+      
+      
+      
+      var elemetnDisabled = true;
+      
+      
+      function makeDisabled(){
+        $("#form-toDate").val("");
+  			$("#form-toTime").val("");
+          
+  			$("#form-toDate").prop('disabled', true);
+  			$("#form-toTime").prop('disabled', true);
+  			//$("#clockIcon").prop('disabled', true);
+  			//$("#clanderIcon").prop('disabled', true);
+  			elemetnDisabled = true;
+	   	}  
+		
+		  function makeEnabled(){
+			  $("#form-toDate").prop('disabled', false);
+			  $("#form-toTime").prop('disabled', false);
+			  //$("#clockIcon").prop('disabled', false);
+			  //$("#clanderIcon").prop('disabled', true);
+  			elemetnDisabled = false;
+  		}
+  		
+  		function ResetForm(){
+  		  makeDisabled();
+  		  $("#form-task").val("");
+  		  $("#form-fromDate").val("");
+  		  $("#form-fromTime").val("");
+  		  $("#form-toDate").val("");
+  		  $("#form-toTime").val("");
+  		}
+  		
+  		var count = 7;
+  		
+  		function SaveForm(){
+  		  var task = $("#form-task").val("");
+  		  var startDate = $("#form-fromDate").val("");
+  		  var startTime = $("#form-fromTime").val("");
+  		  var endDate = $("#form-toDate").val("");
+  		  var endTime = $("#form-toTime").val("");
+  		  
+  		  var boolStartDate = (startDate === "");
+  		  var boolStartTime = (startTime === "");
+  		  var boolEndDate = (endDate === "");
+  		  var boolEndTime = (endTime === "");
+  		  
+  		  
+  		         if((boolStartDate) & !(boolStartTime) & !(boolEndDate) & !(boolEndTime)){
+  		    items.add([{id: count, content: task, start: startDate},]);
+  		  } else if((boolStartDate) & (boolStartTime) & !(boolEndDate) & !(boolEndTime)){
+  		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z"},]);
+  		  } else if((boolStartDate) & (boolStartTime) & (boolEndDate) & !(boolEndTime)){
+  		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", end: endDate},]);
+  		  } else if((boolStartDate) & (boolStartTime) & (boolEndDate) & (boolEndTime)){
+  		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", end: endDate + "T" + endTime +":00Z"},]);
+  		  }else if((boolStartDate) & !(boolStartTime) & (boolEndDate) & !(boolEndTime)){
+  		   items.add([{id: count, content: task, start: startDate, end: endDate},]);
+  		  } else if((boolStartDate) & !(boolStartTime) & (boolEndDate) & (boolEndTime)){
+  		    items.add([{id: count, content: task, start: startDate, end: endDate + "T" + endTime +":00Z"},]);
+  		  } else {
+  		    //ERROR
+  		  }
+  		  
+  		  
+  		  items.add([{id: count, content: task, start: '2014-02-23'},]);
+  		  
+  		  
+  		  count++
+  		}
+		
+		$("#AddDateTime").click(function(){
+		  if(elemetnDisabled){
+		    makeEnabled();
+		  } else {
+		    makeDisabled();
+		  }
+		});
+		    
+		$("#AddTask").click(function(){
+		    SaveForm();
+		    ResetForm();
+		});
+		
+		$("#Close").click(function(){
+		    ResetForm();
+		});
+	
+      
+      
+      
+  });
+   
+   
+   
+  </script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 var paperfolds = [];          
-var hiddenElements = $('.hidden');
+var hiddenElements = $('.fold-hidden');
 var transEndEventNames = {
     'WebkitTransition' : 'webkitTransitionEnd',
     'MozTransition'    : 'transitionend',
@@ -44,8 +44,9 @@ var paperfold = {
       this.tops = this.folds.find('> .top');
       
       // bind buttons
-      this.element.prev('.seeThis').click( $.proxy(this, 'toggle') );
-      this.element.next('.seeMore').click( $.proxy(this, 'toggle') );
+      this.element.prev('.fold-item').click( $.proxy(this, 'toggle') );
+      //this.element.prev('.seeThis').click( $.proxy(this, 'toggle') );
+      //this.element.next('.seeMore').click( $.proxy(this, 'toggle') );
       $('#go').click( $.proxy(this, 'toggle') );
       
       this.element.addClass('ready');
