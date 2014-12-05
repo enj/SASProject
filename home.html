@@ -35,6 +35,12 @@
     .timeline-container {
       margin: 10px;
     }
+    
+    
+    testOpacity {
+      opacity: 0.3;
+    }
+    
   </style> 
 	
 	  <script src="vis/dist/vis.js"></script>
@@ -138,7 +144,7 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Christmas Promo Ad</h2>
+          <h2>Elections coverage API</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p>
             <div class="progress">
@@ -148,8 +154,8 @@
             </div>
           </p>
         </div>
-        <div class="col-md-4">
-          <h2>Elections coverage API</h2>
+        <div class="well col-md-4">
+          <h2>Christmas Day Ad</h2>
           <p>Lorem ipsum dolor sit amet, erant delectus deseruisse nam cu, error ignota oblique te nam, qui no solet fabulas perfecto. Id eam eros deterruisset, his te oportere sententiae. Ad cum tale viderer inimicus, his ad enim assum. Vocent omittam pri cu.</p>
           <p>
             <div class="progress">
@@ -274,8 +280,8 @@
       
       
       
-
-      <hr>
+<!--
+      <hr>-->
 
       <footer>
         <p>&copy; SAS 2014</p>
@@ -299,12 +305,32 @@
     
       // add items to the DataSet
       items.add([
-        {id: 1, content: 'Quarter 1<br>Start', start: '2014-12-23', type: 'point'},
-        {id: 2, content: 'Vendor meeting', start: '2014-12-18'},
-        {id: 3, content: 'A/B Test Promo Page', start: '2014-11-21T01:01:00Z'},
-        {id: 4, content: 'Investigation briefs', start: '2014-11-26T09:00:00Z', end: '2014-12-04T00:00:00Z'},
-        {id: 5, content: 'Contact Shella for URL setup', start: '2014-11-28', type:'point'},
-        {id: 6, content: 'Grant Mike access to DNS Zone for domain', start: '2014-12-11'}
+        {id: 1, content: 'Project Review', start: '2015-01-10', type: 'point'},
+        {id: 26, content: 'Project Ends', start: '2014-12-25', type: 'point'},
+        {id: 2, content: 'Submission of Ad', start: '2014-12-18'},
+        {id: 3, content: 'Ad Early Run', start: '2014-12-21T01:01:00Z'},
+        {id: 4, content: 'Website Development', start: '2014-11-26T09:00:00Z', end: '2014-12-04T00:00:00Z'},
+        {id: 5, content: 'Contact Shella for URL setup', start: '2014-11-24', type:'point'},
+        {id: 6, content: 'Grant Mike access to site', start: '2014-12-11'},
+        {id: 7, content: 'Start Project', start: '2014-10-11'},
+        {id: 8, content: 'Pleminary Meeting', start: '2014-10-13T12:00:00Z', end: '2014-10-13T15:00:00Z'}, /* Needs to be span of a few hours 12 - 3*/
+        {id: 9, content: 'Market Research Deliverable', start: '2014-10-15', type: 'point'},
+        {id: 10, content: 'Budget Meeting', start: '2014-10-17T09:00:00Z' , end: '2014-10-17T12:00:00Z'},   /* Needs to be span of a few hours 12 - 3*/
+        {id: 11, content: 'Mark on Vacation', start: '2014-10-26', end: '2014-11-01'}, 
+        {id: 12, content: 'Deliver Story Board', start: '2014-10-29', type: 'point'},
+        {id: 13, content: 'Story Board Review', start: '2014-11-04'},
+        {id: 14, content: 'Focus Group Meeting', start: '2014-11-11'},
+        {id: 15, content: 'Schedule Focus Group', start: '2014-11-06'},
+        {id: 16, content: 'Website Design', start: '2014-11-17', end: '2014-11-22'},
+        /*{id: 17, content: 'Promote Haley', start: '2014-11-21'},
+        {id: 18, content: 'Promote Haley', start: '2014-11-23'},
+        {id: 19, content: 'Promote Haley', start: '2014-11-28'},
+        {id: 20, content: 'Promote Haley', start: '2014-11-29'},
+        {id: 21, content: 'Promote Haley', start: '2014-12-01'},
+        {id: 22, content: 'Promote Haley', start: '2014-12-05'},
+        {id: 23, content: 'Promote Haley', start: '2014-12-07'},
+        {id: 24, content: 'Promote Haley', start: '2014-12-09'},
+        {id: 25, content: 'Promote Haley', start: '2014-12-11'},*/
       ]);
     
       function createTimeline(main) {
@@ -317,7 +343,7 @@
           editable: true,
           clickToUse: true,
           zoomMin: 1000 * 60 * 60 * 24,             // one day in milliseconds
-          zoomMax: 1000 * 60 * 60 * 24 * 31 * 3     // about three months in milliseconds
+          zoomMax: 1000 * 60 * 60 * 24 * 31 * 4     // about three months in milliseconds
         };
     
         return new vis.Timeline(container, items, options);
@@ -355,10 +381,10 @@
     }
 
     // attach events to the navigation buttons
-    document.getElementById('timeline-zoomIn').onclick    = function () { zoom(-0.2); };
-    document.getElementById('timeline-zoomOut').onclick   = function () { zoom( 0.2); };
-    document.getElementById('timeline-moveLeft').onclick  = function () { move( 0.2); };
-    document.getElementById('timeline-moveRight').onclick = function () { move(-0.2); };
+    document.getElementById('timeline-zoomIn').onclick    = function () { zoom(-0.5); };
+    document.getElementById('timeline-zoomOut').onclick   = function () { zoom( 0.5); };
+    document.getElementById('timeline-moveLeft').onclick  = function () { move( 0.4); };
+    document.getElementById('timeline-moveRight').onclick = function () { move(-0.4); };
     document.getElementById('timeline-moveTo').onclick = function() {
       timeline.moveTo(document.getElementById('timeline-moveToData').value);
       document.getElementById('timeline-moveToData').value ="";
@@ -484,7 +510,7 @@
     		  $("#form-toTime").val("");
     		}
     		
-    		var count = 7;
+    		var count = 100;
     		
     		function SaveForm(){
     		  var task = $("#form-task").val();
@@ -521,7 +547,7 @@
     		  
     		  count++
     		  
-    		  timeline.fit();
+    		  // timeline.fit();
     		}
   		
   		$("#AddDateTime").click(function(){
@@ -541,13 +567,10 @@
   		    ResetForm();
   		});
   	
-          
-          
-          
         
     });
      
-     
+      timeline.setWindow('2014-11-20', '2014-12-20');
      
     </script>
     
