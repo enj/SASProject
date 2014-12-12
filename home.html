@@ -26,6 +26,11 @@
 
     <title>Jumbotron Template for Bootstrap</title>
 	
+	  <script src="vis/dist/vis.js"></script>
+    <link href="vis/dist/vis.css" rel="stylesheet" type="text/css" />
+    
+    
+	
 	  <style>
 
     #timeline-main {
@@ -41,10 +46,42 @@
       opacity: 0.3;
     }
     
+        /* custom styles for individual items, load this after vis.css */
+
+    .vis.timeline .item.projectOne {
+      background-color: greenyellow;
+      border-color: green;
+    }
+
+    .vis.timeline .item.projectTwo {
+      background-color: gold;
+      border-color: orange;
+    }
+    .vis.timeline .item.projectTwo.selected {
+      /* custom colors for selected orange items */
+      background-color: orange;
+      border-color: orangered;
+    }
+
+    .vis.timeline .item.projectThree {
+      background-color: magenta;
+      border-color: purple;
+      color: white;
+    }
+
+    /* our custom classes overrule the styles for selected events,
+       so lets define a new style for the selected events */
+    .vis.timeline .item.selected {
+      background-color: white;
+      border-color: black;
+      color: black;
+      box-shadow: 0 0 10px gray;
+    }
+
+    
   </style> 
-	
-	  <script src="vis/dist/vis.js"></script>
-    <link href="vis/dist/vis.css" rel="stylesheet" type="text/css" />
+    
+    
   </head>
 
   <body>
@@ -91,6 +128,10 @@
       <div class="container-fluid">
         <div class="row text-center" >
           <div class="col-md-4">
+            <button type="button" class="btn btn-default" id="softResetClick">
+                <i class="glyphicon glyphicon-refresh"></i>
+                Reset
+            </button>
           </div>
           <div class="col-md-4">
             <button type="button" class="btn btn-default" id="timeline-moveLeft">
@@ -110,7 +151,7 @@
             <button type="button" class="btn btn-default" id="timeline-addTask" data-toggle="modal" data-target="#myModal">
                 <i class="glyphicon glyphicon-tasks"></i>
                 Add Task
-                </button>
+            </button>
           </div>
         </div>
       </div>
@@ -134,7 +175,12 @@
               </div>
                 
           </div>
-          <div class="col-md-5"></div>
+          <div class="col-md-5">
+            <button type="button" class="btn btn-default" id="showAllProjectClick">
+                <i class="glyphicon glyphicon-eye-open"></i>
+                Show All
+            </button>
+          </div>
         </div>
       </div>
       
@@ -143,7 +189,7 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
+        <div class="projectOneClick projectWell col-md-4">
           <h2>Elections coverage API</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p>
@@ -154,7 +200,7 @@
             </div>
           </p>
         </div>
-        <div class="well col-md-4">
+        <div class="projectTwoClick projectWell col-md-4">
           <h2>Christmas Day Ad</h2>
           <p>Lorem ipsum dolor sit amet, erant delectus deseruisse nam cu, error ignota oblique te nam, qui no solet fabulas perfecto. Id eam eros deterruisset, his te oportere sententiae. Ad cum tale viderer inimicus, his ad enim assum. Vocent omittam pri cu.</p>
           <p>
@@ -165,7 +211,7 @@
             </div>
           </p>
        </div>
-        <div class="col-md-4">
+        <div class="projectThreeClick projectWell col-md-4">
           <h2>Quarterly 15% off deal</h2>
           <p>Eos nulla dignissim te, solum impetus tamquam eu vix, ex quaeque detracto eos. Pri no eius meliore sapientem. Ius id altera oblique delicata. Cu vulputate abhorreant voluptatibus sit, eu dolorum debitis eam. Eirmod neglegentur cu usu, duo mnesarchum moderatius ei. </p>
           <p>
@@ -196,6 +242,16 @@
               <!--FORM PAGE -->
               <form class="form-horizontal" role="form">
                 
+                <div class="form-group">
+                  <label for="form-project" class="col-sm-2 control-label">Project</label>
+                  <div class="col-sm-10">
+                    <select id="form-project" class="form-control">
+                      <option value="projectOne">Elections coverage API</option>
+                      <option value="projectTwo">Christmas Day AD</option>
+                      <option value="projectThree">Quarterly 15% off deal</option>
+                    </select>
+                  </div>
+                </div>
                 
                 <div class="form-group">
                   <label for="form-task" class="col-sm-2 control-label">Task</label>
@@ -305,23 +361,23 @@
     
       // add items to the DataSet
       items.add([
-        {id: 1, content: 'Project Review', start: '2015-01-10', type: 'point'},
-        {id: 26, content: 'Project Ends', start: '2014-12-25', type: 'point'},
-        {id: 2, content: 'Submission of Ad', start: '2014-12-18'},
-        {id: 3, content: 'Ad Early Run', start: '2014-12-21T01:01:00Z'},
-        {id: 4, content: 'Website Development', start: '2014-11-26T09:00:00Z', end: '2014-12-04T00:00:00Z'},
-        {id: 5, content: 'Contact Shella for URL setup', start: '2014-11-24', type:'point'},
-        {id: 6, content: 'Grant Mike access to site', start: '2014-12-11'},
-        {id: 7, content: 'Start Project', start: '2014-10-11'},
-        {id: 8, content: 'Pleminary Meeting', start: '2014-10-13T12:00:00Z', end: '2014-10-13T15:00:00Z'}, /* Needs to be span of a few hours 12 - 3*/
-        {id: 9, content: 'Market Research Deliverable', start: '2014-10-15', type: 'point'},
-        {id: 10, content: 'Budget Meeting', start: '2014-10-17T09:00:00Z' , end: '2014-10-17T12:00:00Z'},   /* Needs to be span of a few hours 12 - 3*/
-        {id: 11, content: 'Mark on Vacation', start: '2014-10-26', end: '2014-11-01'}, 
-        {id: 12, content: 'Deliver Story Board', start: '2014-10-29', type: 'point'},
-        {id: 13, content: 'Story Board Review', start: '2014-11-04'},
-        {id: 14, content: 'Focus Group Meeting', start: '2014-11-11'},
-        {id: 15, content: 'Schedule Focus Group', start: '2014-11-06'},
-        {id: 16, content: 'Website Design', start: '2014-11-17', end: '2014-11-22'},
+        {id: 1, content: 'Project Review', start: '2015-01-10', type: 'point', className: 'projectOne'},
+        {id: 26, content: 'Project Ends', start: '2014-12-25', type: 'point', className: 'projectTwo'},
+        {id: 2, content: 'Submission of Ad', start: '2014-12-18', className: 'projectThree'},
+        {id: 3, content: 'Ad Early Run', start: '2014-12-21T01:01:00Z', className: 'projectOne'},
+        {id: 4, content: 'Website Development', start: '2014-11-26T09:00:00Z', end: '2014-12-04T00:00:00Z', className: 'projectTwo'},
+        {id: 5, content: 'Contact Shella for URL setup', start: '2014-11-24', type:'point', className: 'projectThree'},
+        {id: 6, content: 'Grant Mike access to site', start: '2014-12-11', className: 'projectOne'},
+        {id: 7, content: 'Start Project', start: '2014-10-11', className: 'projectTwo'},
+        {id: 8, content: 'Pleminary Meeting', start: '2014-10-13T12:00:00Z', end: '2014-10-13T15:00:00Z', className: 'projectThree'}, /* Needs to be span of a few hours 12 - 3*/
+        {id: 9, content: 'Market Research Deliverable', start: '2014-10-15', type: 'point', className: 'projectOne'},
+        {id: 10, content: 'Budget Meeting', start: '2014-10-17T09:00:00Z' , end: '2014-10-17T12:00:00Z', className: 'projectTwo'},   /* Needs to be span of a few hours 12 - 3*/
+        {id: 11, content: 'Mark on Vacation', start: '2014-10-26', end: '2014-11-01', className: 'projectThree'}, 
+        {id: 12, content: 'Deliver Story Board', start: '2014-10-29', type: 'point', className: 'projectOne'},
+        {id: 13, content: 'Story Board Review', start: '2014-11-04', className: 'projectTwo'},
+        {id: 14, content: 'Focus Group Meeting', start: '2014-11-11', className: 'projectThree'},
+        {id: 15, content: 'Schedule Focus Group', start: '2014-11-06', className: 'projectOne'},
+        {id: 16, content: 'Website Design', start: '2014-11-17', end: '2014-11-22', className: 'projectTwo'},
         /*{id: 17, content: 'Promote Haley', start: '2014-11-21'},
         {id: 18, content: 'Promote Haley', start: '2014-11-23'},
         {id: 19, content: 'Promote Haley', start: '2014-11-28'},
@@ -343,7 +399,56 @@
           editable: true,
           clickToUse: true,
           zoomMin: 1000 * 60 * 60 * 24,             // one day in milliseconds
-          zoomMax: 1000 * 60 * 60 * 24 * 31 * 4     // about three months in milliseconds
+          zoomMax: 1000 * 60 * 60 * 24 * 31 * 4,     // about three months in milliseconds
+          
+          
+
+    onAdd: function (item, callback) {
+      item.content = prompt('Enter text content for new item:', item.content);
+      if (item.content != null) {
+        callback(item); // send back adjusted new item
+      }
+      else {
+        callback(null); // cancel item creation
+      }
+    },
+
+    onMove: function (item, callback) {
+      if (confirm('Do you really want to move the item to\n' +
+          'start: ' + item.start + '\n' +
+          'end: ' + item.end + '?')) {
+        callback(item); // send back item as confirmation (can be changed)
+      }
+      else {
+        callback(null); // cancel editing item
+      }
+    },
+/*
+    onMoving: function (item, callback) {
+      if (item.start < min) item.start = min;
+      if (item.start > max) item.start = max;
+
+      callback(item); // send back the (possibly) changed item
+    },*/
+
+    onUpdate: function (item, callback) {
+      item.content = prompt('Edit items text:', item.content);
+      if (item.content != null) {
+        callback(item); // send back adjusted item
+      }
+      else {
+        callback(null); // cancel updating the item
+      }
+    },
+
+    onRemove: function (item, callback) {
+      if (confirm('Remove item ' + item.content + '?')) {
+        callback(item); // confirm deletion
+      }
+      else {
+        callback(null); // cancel deletion
+      }
+    }
         };
     
         return new vis.Timeline(container, items, options);
@@ -381,29 +486,31 @@
     }
 
     // attach events to the navigation buttons
-    document.getElementById('timeline-zoomIn').onclick    = function () { zoom(-0.5); };
+    document.getElementById('timeline-zoomIn').onclick    = function () { zoom(-0.2); };
     document.getElementById('timeline-zoomOut').onclick   = function () { zoom( 0.5); };
     document.getElementById('timeline-moveLeft').onclick  = function () { move( 0.4); };
     document.getElementById('timeline-moveRight').onclick = function () { move(-0.4); };
+    
     document.getElementById('timeline-moveTo').onclick = function() {
-      timeline.moveTo(document.getElementById('timeline-moveToData').value);
+      
+      var v = document.getElementById('timeline-moveToData').value;
+      v = v ? v : new Date();
+      var v1 = new Date(v);
+      var v2 = new Date(v);
+           
+      timeline.setWindow(
+        v1.offsetDays(-14),
+        v2.offsetDays(+14)
+      );
+      
       document.getElementById('timeline-moveToData').value ="";
       
     };
-/*
-  function addTask () {
 
-     items.add([
-       {id: 11, content: 'item 1<br>start', start: '2014-02-23'},
-       ]);
-    
-    //items.add(data);
 
-    // adjust the timeline window such that we see the loaded data
-    timeline.fit();
-  }*/
-  
-  // document.getElementById('timeline-load').onclick = addTask;
+
+
+
 
     /*************************************************************************
      * jQuery and jQueryUI section 
@@ -412,22 +519,8 @@
      * http://getbootstrap.com/javascript/#modals
      * 
      *************************************************************************/
-     
      $( document ).ready(function() {
        
-        /*
-        id="form-task"
-        id="form-fromDate"
-        id="form-fromTime"
-        id="form-toDate"
-        id="form-toTime"
-        id="form-project"
-        
-        
-        
-        */
-        
-        
         $('#timeline-goTo input').datepicker({
             format: "yyyy-mm-dd",
             startDate: "2014-01-01",
@@ -438,16 +531,9 @@
             todayHighlight: true
         });
 
-        
         $( "#brand" ).click(function() {
           alert();
         });
-        
-        
-        
-        
-        
-        
         
         $('.clockpicker').clockpicker();
       
@@ -472,15 +558,11 @@
             todayHighlight: true
         });
         
-        
         $( "#brand" ).click(function() {
           alert();
         });
         
-        
-        
         var elemetnDisabled = true;
-        
         
         function makeDisabled(){
           $("#form-toDate").val("");
@@ -513,40 +595,47 @@
     		var count = 100;
     		
     		function SaveForm(){
+    		  var project = $("#form-project").val();
     		  var task = $("#form-task").val();
     		  var startDate = $("#form-fromDate").val();
     		  var startTime = $("#form-fromTime").val();
     		  var endDate = $("#form-toDate").val();
     		  var endTime = $("#form-toTime").val();
     		  
-    		  
-    		 // alert( task + "\n" + startDate + "\n" + startTime  + "\n" + endDate + "\n" + endTime);
-    		  
+    		  //used to see what actions is taken with adding an element
     		  var boolStartDate = !(startDate === "");
     		  var boolStartTime = !(startTime === "");
     		  var boolEndDate = !(endDate === "");
     		  var boolEndTime = !(endTime === "");
     		  
-    		  //alert( boolStartDate + "\n" + boolStartTime + "\n" + boolEndDate  + "\n" + boolEndTime + "\n");
-    		  
-    		         if((boolStartDate) & !(boolStartTime) & !(boolEndDate) & !(boolEndTime)){
-    		    items.add([{id: count, content: task, start: startDate},]);
+    		  if((boolStartDate) & !(boolStartTime) & !(boolEndDate) & !(boolEndTime)){
+    		    items.add([{id: count, content: task, start: startDate, className: project},]);
     		  } else if((boolStartDate) & (boolStartTime) & !(boolEndDate) & !(boolEndTime)){
-    		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", type: 'point'},]);
+    		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", type: 'point', className: project},]);
     		  } else if((boolStartDate) & (boolStartTime) & (boolEndDate) & !(boolEndTime)){
-    		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", end: endDate},]);
+    		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", end: endDate, className: project},]);
     		  } else if((boolStartDate) & (boolStartTime) & (boolEndDate) & (boolEndTime)){
-    		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", end: endDate + "T" + endTime +":00Z"},]);
+    		    items.add([{id: count, content: task, start: startDate + "T" + startTime +":00Z", end: endDate + "T" + endTime +":00Z", className: project},]);
     		  }else if((boolStartDate) & !(boolStartTime) & (boolEndDate) & !(boolEndTime)){
-    		   items.add([{id: count, content: task, start: startDate, end: endDate},]);
+    		   items.add([{id: count, content: task, start: startDate, end: endDate, className: project},]);
     		  } else if((boolStartDate) & !(boolStartTime) & (boolEndDate) & (boolEndTime)){
-    		    items.add([{id: count, content: task, start: startDate, end: endDate + "T" + endTime +":00Z"},]);
+    		    items.add([{id: count, content: task, start: startDate, end: endDate + "T" + endTime +":00Z", className: project},]);
     		  } else {
     		    //ERROR need to return false here and stop the function
     		  }
     		  
     		  count++
     		  
+    		  var d1 = new Date(startDate);
+          
+    		  var d2 = new Date(startDate);
+           
+          timeline.setWindow(
+            d1.offsetDays(-14),
+            d2.offsetDays(+14)
+          );
+          		
+      		// now zooming to hold a months worth   
     		  // timeline.fit();
     		}
   		
@@ -566,11 +655,62 @@
   		$("#Close").click(function(){
   		    ResetForm();
   		});
+  		
+  		
+      $('.projectWell').click(function() {
+        $('.projectWell').removeClass('well');
+        $( this ).addClass('well');
+      });
+  		
+  		
+      $('.projectOneClick').click(function() {
+        $('.vis.timeline .item').hide();
+        $('.projectOne').show();
+      });
+  		
+  		
+      $('.projectTwoClick').click(function() {
+        $('.vis.timeline .item').hide();
+        $('.projectTwo').show();
+      });
+  		
+  		
+      $('.projectThreeClick').click(function() {
+        $('.vis.timeline .item').hide();
+        $('.projectThree').show();
+      });
+  		
+  		function showAllProjectsF() {
+        $('.vis.timeline .item').show();
+        $('.projectWell').removeClass('well');
+      }
+  		
+      $('#showAllProjectClick').click(showAllProjectsF);
   	
-        
-    });
-     
-      timeline.setWindow('2014-11-20', '2014-12-20');
+    Date.prototype.offsetDays = function(days) {
+      this.setDate(this.getDate() + days);
+      return this;
+    };
+    
+    function softResetTL() {
+      
+    showAllProjectsF();
+    
+    var today1 = new Date();
+    var today2 = new Date();
+    
+    timeline.setWindow(
+      today1.offsetDays(-14),
+      today2.offsetDays(+14)
+    );
+
+    }
+    
+    softResetTL();
+    
+    $('#softResetClick').click(softResetTL);
+    
+     });
      
     </script>
     
